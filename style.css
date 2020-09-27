@@ -23,6 +23,6 @@ body{
 }
 
 .pos{
-    position: relative;
+    position: fixed;
     left: 38%;
 }
