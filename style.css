@@ -23,6 +23,6 @@ body{
 }
 
 .pos{
-    position: fixed;
-    left: 38%;
+    padding-left: 38%;
+    padding-right: 38%;
 }
