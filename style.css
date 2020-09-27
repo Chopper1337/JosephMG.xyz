@@ -1,9 +1,28 @@
-h1,p,a {
-    text-align: center;
-    font-family: Arial, sans-serif;
+body{
+    background: #171717;
+}
+
+.comment{
+    color: #878787;
+}
+
+.selector{
+    color: #509e29;
+}
+
+.subselector{
+    color: #298b9e;
+}
+
+.property{
+    color: #9e2929;
+}
+
+.value{
     color: white;
 }
 
-body{
-    background: black;
+.pos{
+    position: relative;
+    left: 38%;
 }
