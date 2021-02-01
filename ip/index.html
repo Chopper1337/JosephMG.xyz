@@ -170,10 +170,7 @@ Class D: 224-239
 Class E: 240-254
 <br>
 <br>
-These ranges are in relation to the first octet of the IP, which in this case is "192".
-<br>
-That makes this a Class C address.
-<br>
+These ranges are in relation to the first octet of the IP, which in this case is "192", making this a Class C address.
 <br>
 <h3>Now determine the class-full subnet of the IP:</h3>
 Class A: 255.0.0.0
@@ -185,12 +182,10 @@ Class C: 255.255.255.0
 Class D: [RESERVED FOR MULTICASTING]
 <br>
 Class E: [EXPERIMENTAL; USED FOR RESEARCH]
-<br>
-<br>
-<br>
+<br><br>
 As we have a Class C address, the class-full subnet is 255.255.255.0
 <br>
-but CIDR notation shows that this IP is classless as the CIDR notation for a Class C address is 24
+but CIDR notation (/28) shows that this IP is classless as the CIDR notation for a Class C address is 24
 <br>
 In this case, we have more than 24 bits assigned for networks, 4 more bits have been added.<br>
 Therefore, 255.255.255.0 is <a style="text-decoration: underline">not<a> the subnet mask of this address.
@@ -200,20 +195,16 @@ Therefore, 255.255.255.0 is <a style="text-decoration: underline">not<a> the sub
 The CIDR notation, <a style="text-decoration: underline">28<a>, shows there are 28 1's in the subnet mask's binary.
 <br><br>
 Here is the subnet mask's binary: <pre>11111111111111111111111111110000</pre>
-<br>
-divided into octets: <pre>11111111.11111111.1111111111.11110000</pre>
-<br>
+Same binary but divided into octets: <pre>11111111.11111111.1111111111.11110000</pre>
 To get the last number in the subnet mask, consider each "1" in the subnet mask binary to be the following:
 <br>
 <pre>128 64 32 16 8 4 2 1</pre>
-<br>
 In the missing part of the subnet mask, we have the binary 11110000:
 <br>
 <pre>
 1     1	   1	 1	  0	  0	  0	  0<br>
 128   64   32	 16	  8	  4	  2	  1
 </pre>
-<br>
 Now add the numbers which have a "1" above them,
 <br>
 <pre>128+64+32+16=240</pre>
@@ -221,24 +212,22 @@ This results in the last number for the classless subnet mask, making our subnet
 <br>
 <pre>255.255.255.240</pre>
 <h3>Finally, find the subnets</h3>
-Taking away 240 from 256 gives us the number of subnets:
+Taking 240 from 256 gives us the number of subnets:
 <br>
 <pre>256-240=16</pre>
-Dividing the number of subnets by 256 gives us the range of hosts for each subnet:
+Dividing this number of subnets by 256 gives us the range of hosts for each subnet:
 <br>
 <pre>256/16=16</pre>
-<br>
-Then count up in 16's til you reach 256
+Count by the range of the subnets til you reach 256. In this case, as the range of each subnet is 16, we count up in 16's
 <br>
 <pre>16 - 32 - 48 - 64 - 80 - 96 - 112 - 128 - 144 - 160 - 176 - 192 - 208 - 224 - 240 - 256</pre>
-<br>
 These divisions are the ranges of hosts for all 16 subnets.
 <br>
 Going back to the IP, 192.168.2.32, it exists here:
 <br>
 <pre>
 16 - 32 - 48 - 64...^-----^
-</pre><br>
+</pre>
 32 and 48 are subnet identifiers which cannot be assigned as IP's, that means 192.168.2.33 is the first IP in this range.
 <br>
 192.168.2.47 is therefore the broadcast address for this subnet.
@@ -247,6 +236,19 @@ Going back to the IP, 192.168.2.32, it exists here:
 <br>
 <b>
 192.168.2.33 to 192.168.2.46</b></p>
+
+<h1>Summary</h1>
+<p>
+Provided you fully understand this process, it is possible to do entirely in your head.<br>
+Given an IP, for example, 10.156.54.22/10, you can see immediately that it is Class A and that the subnet mask begins with 255.<br>
+From there, you can see that only two bits have been added, making the subnet mask 255.192.0.0.<br>
+256-192=64, making the number of subnets 64.<br>
+256/64=4, meaning there are 4 hosts per subnet.<br>
+Counting in 4's lets us find the subnet in which this IP lies: 10.156.54.4, 10.156.54.8, 10.156.54.12, 10.156.54.16, 10.156.54.20, 10.156.54.24<br>
+The IP is in the 10.156.54.20 subnet.<br>
+10.156.54.20 is the identifier, making 10.156.54.21 the first host address.<br>
+10.156.54.23 is the broadcast address, meaning there is only one truely usable IP per subnet on this network, considering that 10.156.54.21 could be used by the router.
+</p>
 
 <div  style="font-size:60%">
 Hosted at <a href="https://JosephMG.xyz" target="_blank">JosephMG.xyz</a></div>
