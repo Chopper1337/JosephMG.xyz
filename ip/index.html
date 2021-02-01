@@ -76,7 +76,7 @@
 		</tr>
 		
 	</table>
-	<p><b>Note:</b> Class A addresses 127.0.0.0 to 127.255.255.255 cannot be used and is reserved for loopback and diagnostic functions.</p>
+	<p><b>Note:</b> Class A addresses 127.0.0.0 to 127.255.255.255 cannot be used and are reserved for loopback and diagnostic functions.</p>
 	
 	<h3>Private IP Addresses</h3>
 	<table border="0" >
@@ -118,29 +118,33 @@
 <table border="0" >
 		<tr>
 			<th>Class</th>
-			<th>Address</th>
+			<th>Example 	Address</th>
 			<th>Subnet Mask</th>
+			<th>Subnet Mask Binary</th>
 			<th>Bits in Subnet Mask</th>
 			<th>CIDR Notation</th>
 		</tr>
 		<tr>
 			<td>A</td>
-			<td>10.0.0.0</td>
+			<td>10.22.16.4</td>
 			<td>255.0.0.0</td>
+			<td>11111111.00000000.00000000.00000000</td>
 			<td>8</td>
 			<td>/8</td>
 		</tr>
 		<tr>
 			<td>B</td>
-			<td>172.16.0.0</td>
-			<td>255.240.0.0</td>
+			<td>172.168.100.105</td>
+			<td>255.255.0.0</td>
+			<td>11111111.11111111.00000000.00000000</td>
 			<td>16</td>
 			<td>/16</td>
 		</tr>
 		<tr>
 			<td>C</td>
-			<td>192.168.0.0</td>
-			<td>255.255.0.0</td>
+			<td>192.168.2.206</td>
+			<td>255.255.255.0</td>
+			<td>11111111.11111111.11111111.00000000</td>
 			<td>24</td>
 			<td>/24</td>
 		</tr>
@@ -183,13 +187,14 @@ Class E: [EXPERIMENTAL; USED FOR RESEARCH]
 <br>
 As we have a Class C address, the class-full subnet is 255.255.255.0
 <br>
-but CIDR notation shows that this IP is classless.
+but CIDR notation shows that this IP is classless as the CIDR notation for a Class C address is 24
 <br>
-In this case, we have more than 24 bits assigned for networks, 4 more bits have been added.
+In this case, we have more than 24 bits assigned for networks, 4 more bits have been added.<br>
+Therefore, 255.255.255.0 is <a style="text-decoration: underline">not<a> the subnet mask of this address.
 <br>
 <h3>Now get the classless subnet:</h3>
 192.168.2.32/<a style="text-decoration: underline">28<a><br>
-The <a style="text-decoration: underline">28<a> at the end of the IP shows there are 28 1's in the subnet mask's binary.
+The CIDR notation, <a style="text-decoration: underline">28<a>, shows there are 28 1's in the subnet mask's binary.
 <br><br>
 Here is the subnet mask's binary: <pre>11111111111111111111111111110000</pre>
 <br>
@@ -208,16 +213,14 @@ In the missing part of the subnet mask, we have the binary 11110000:
 <br>
 Now add the numbers which have a "1" above them,
 <br>
-<pre>128+64+32+16= 240</pre>
-<br>
-This results in the last number for the classless subnet mask:
+<pre>128+64+32+16=240</pre>
+This results in the last number for the classless subnet mask, making our subnet mask as follows:
 <br>
 <pre>255.255.255.240</pre>
-<br>
-Taking away 240 from 256 gives us the number of subnets
+<h3>Finally, find the subnets</h3>
+Taking away 240 from 256 gives us the number of subnets:
 <br>
 <pre>256-240=16</pre>
-<br>
 Dividing the number of subnets by 256 gives us the range of hosts for each subnet:
 <br>
 <pre>256/16=16</pre>
