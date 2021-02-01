@@ -23,7 +23,7 @@
 <body class="markdown-body">
 
 
-	<h1 >IP address classes</h1>
+	<h1>IP Address Classes</h1>
 	<p>
 	<table border="0" >
 		<tr>
@@ -76,9 +76,9 @@
 		</tr>
 		
 	</table>
-	<p ><b>Note:</b> Class A addresses 127.0.0.0 to 127.255.255.255 cannot be used and is reserved for loopback and diagnostic functions.</p>
+	<p><b>Note:</b> Class A addresses 127.0.0.0 to 127.255.255.255 cannot be used and is reserved for loopback and diagnostic functions.</p>
 	
-	<h2 >Private IP Addresses</h2>
+	<h3>Private IP Addresses</h3>
 	<table border="0" >
 		<tr>
 			<th>Class</th>
@@ -107,12 +107,49 @@
 		
 		
 	</table>
-	<br>
-<h1>Subnetting:</h1>
+<h1>CIDR Notation</h1>
+<p>CIDR Notation is the number of bits in the subnet mask. You can get the CIDR notation of a classfull address with the following steps:
+
+<ol>
+<li>Find how many 255's there are in the subnet mask
+<li>Consider each 255 as 8 bits (8 bits in binary = 255 in decimal)
+<li>Add the number of bits
+</ol>
+<table border="0" >
+		<tr>
+			<th>Class</th>
+			<th>Address</th>
+			<th>Subnet Mask</th>
+			<th>Bits in Subnet Mask</th>
+			<th>CIDR Notation</th>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>10.0.0.0</td>
+			<td>255.0.0.0</td>
+			<td>8</td>
+			<td>/8</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>172.16.0.0</td>
+			<td>255.240.0.0</td>
+			<td>16</td>
+			<td>/16</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>192.168.0.0</td>
+			<td>255.255.0.0</td>
+			<td>24</td>
+			<td>/24</td>
+		</tr>
+	</table>
+</p>
+<h1>Subnetting</h1>
 <p>
 <b>What is the valid range of hosts of the following IP address:</b>
  <b style="text-decoration: underline;">192.168.2.32/28</b>
-<br>
 <br>
 <h3>First determine the class of the IP:</h3>
 Class A: 1-126
