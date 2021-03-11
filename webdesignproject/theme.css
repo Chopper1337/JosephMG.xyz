@@ -1,7 +1,7 @@
 body{
     background-size: 100%;
     background-image: url("background.jpg");
-    background-repeat: repeat;
+    background-repeat: cover;
     background-color: blue;
 }
 
@@ -76,4 +76,8 @@ button{
     position: absolute;
     right: 42%;
     left: 42%;
+}
+
+iframe{
+    width: 100%;
 }
